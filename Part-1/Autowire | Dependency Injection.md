@@ -89,9 +89,11 @@ Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitio
 `Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.example.demo.Student' available` means we don't have this object.
 ###### But Why? What is happing behind the scene? what is `ConfigurableApplicationContext ctx = Spring Application. run (DemoApplication. class, args);` this method all about? So to solve this problem we will understand what is happing here?
 
-Spring provides you a spring container. The way we have `JVM`. What this container will have? This will have different objects but which objects? So the object which spring specifies those objects, the object which spring specifies those are (in fact the object which we create here) those are called as spring beans.
+Spring provides you a spring container. The way we have `JVM`. What this container will have? This will have different objects but which objects? So the object which spring specifies those objects, the object which spring specifies those are (in fact the object which we create here) called as spring beans.
 
-So how do we create a spring bean? And when they get created? Basically we have two scopes when we create a spring bean first is singleton scope and the second one is prototype scope in fact, in the spring we have so many scopes available like request. session and much more. But those things we use in web applications in core application, we use these two only (prototype & singleton).
+So how do we create a spring bean? And when they get created? 
+
+Basically we have two scopes when we create a spring bean first is singleton scope and the second one is prototype scope in fact, in the spring we have so many scopes available like request. session and much more. But those things we use in web applications in core application, we use these two only (prototype & singleton).
 
 How do we specify singleton & how do we specify, prototype & what does it exactly means? If we see above Student class code this Student class in is not a spring bean here, and even it is a spring bean when it gets created?
 
