@@ -76,3 +76,5 @@ pick up the same version dependancies of your tomcat version in maven dependanci
 
 ![Screenshot 2019-07-03 at 12 34 09 AM](https://user-images.githubusercontent.com/35020560/60539435-56aee300-9d2a-11e9-913c-c5fce6ffe02a.png)
 
+
+##### Example : MyWebApp project directory
