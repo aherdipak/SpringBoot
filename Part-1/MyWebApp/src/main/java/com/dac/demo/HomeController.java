@@ -10,7 +10,9 @@ public class HomeController {
 	public String homePage() {
 		System.out.println("home");
 		
-		return "home.jsp";
+		//return "home.jsp";
+
+		return "home";
 	}
 	
 }
