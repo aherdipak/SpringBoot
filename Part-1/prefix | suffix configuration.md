@@ -34,3 +34,4 @@ In our case we have to specify two properties
 
 ![Screenshot 2019-07-03 at 9 25 53 PM](https://user-images.githubusercontent.com/35020560/60611621-6a1e8480-9de4-11e9-90eb-9bbac9674ac5.png)
 
+#### Example : `MyWebApp` project directory
