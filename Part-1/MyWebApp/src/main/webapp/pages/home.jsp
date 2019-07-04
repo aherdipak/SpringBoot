@@ -8,6 +8,6 @@
 </head>
 <body>
 
-Welcome in Spring Boot 
+Welcome in Spring Boot : ${name}
 </body>
 </html>
