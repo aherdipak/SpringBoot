@@ -9,5 +9,8 @@
 <body>
 
 Welcome in Spring Boot : ${name}
+
+${obj.id}, ${obj.name}, ${obj.lang}
+
 </body>
 </html>

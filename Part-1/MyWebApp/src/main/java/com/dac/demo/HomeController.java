@@ -70,4 +70,16 @@ public class HomeController {
 		return mv;
 	}
 	
+	@RequestMapping("/home3")
+	public ModelAndView homePage3(Student student) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("obj", student);
+		mv.setViewName("home");
+		
+		System.out.println(student.getId()+", "+student.getName()+", "+student.getLang());
+		
+		return mv;
+	}
+	
 }
