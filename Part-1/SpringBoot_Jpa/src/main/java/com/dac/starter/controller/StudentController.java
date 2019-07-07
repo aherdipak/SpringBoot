@@ -8,8 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dac.starter.dao.StudentRepo;
@@ -78,6 +80,24 @@ public class StudentController {
 		System.out.println(list);
 		mv.addObject("studentList", list);
 		return mv;
+	}
+	
+	@RequestMapping("/allStudent")
+	@ResponseBody
+	public String allStudent() {
+		return stdRepo.findAll().toString();
+	}
+	
+//	@RequestMapping("/student/102")
+//	@ResponseBody
+//	public String getStudent() {
+//		return stdRepo.findById(102).toString();
+//	}
+	
+	@RequestMapping("/student/{stdId}")
+	@ResponseBody
+	public String getStudent(@PathVariable("stdId")int stdId) {
+		return stdRepo.findById(stdId).toString();
 	}
 	
 }
