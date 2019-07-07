@@ -2,6 +2,7 @@ package com.dac.starter.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dac.starter.dao.StudentDao;
 import com.dac.starter.dao.StudentRepo;
 import com.dac.starter.model.Student;
 
 @Controller
 public class StudentController {
 
+	@Autowired
+	StudentDao stdDao;
+	
 	@Autowired
 	StudentRepo stdRepo;
 	// I am creating simply object of StudentRepo, no where i am creating a class here.
@@ -82,10 +87,16 @@ public class StudentController {
 		return mv;
 	}
 	
-	@RequestMapping("/allStudent")
+	/*@RequestMapping("/allStudent")
 	@ResponseBody
 	public String allStudent() {
 		return stdRepo.findAll().toString();
+	}*/
+	
+	@RequestMapping("/allStudent")
+	@ResponseBody
+	public List<Student> allStudent() {
+		return stdDao.findAll();
 	}
 	
 //	@RequestMapping("/student/102")
@@ -94,10 +105,15 @@ public class StudentController {
 //		return stdRepo.findById(102).toString();
 //	}
 	
-	@RequestMapping("/student/{stdId}")
+	/*@RequestMapping("/student/{stdId}")
 	@ResponseBody
 	public String getStudent(@PathVariable("stdId")int stdId) {
 		return stdRepo.findById(stdId).toString();
 	}
-	
+	*/
+	@RequestMapping("/student/{stdId}")
+	@ResponseBody
+	public Optional<Student> getStudent(@PathVariable("stdId")int stdId) {
+		return stdDao.findById(stdId);
+	}
 }
