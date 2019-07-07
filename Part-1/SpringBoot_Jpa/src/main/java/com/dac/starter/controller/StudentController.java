@@ -61,4 +61,23 @@ public class StudentController {
 		return "home.jsp";
 	}
 	
+	@RequestMapping("/findByTech")
+	public ModelAndView findByTech(@RequestParam String tech) {
+		ModelAndView mv = new ModelAndView("home.jsp");
+		List<Student> list = stdRepo.findByStdTech(tech);
+		System.out.println(list);
+		System.out.println(stdRepo.findByStdTechSorted(tech));
+		mv.addObject("studentList", list);
+		return mv;
+	}
+	
+	@RequestMapping("/findByIdGreaterThan")
+	public ModelAndView findByIdGreaterThan(@RequestParam int stdId) {
+		ModelAndView mv = new ModelAndView("home.jsp");
+		List<Student> list = stdRepo.findByStdIdGreaterThan(stdId);
+		System.out.println(list);
+		mv.addObject("studentList", list);
+		return mv;
+	}
+	
 }
