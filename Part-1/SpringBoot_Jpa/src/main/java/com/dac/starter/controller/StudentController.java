@@ -93,7 +93,8 @@ public class StudentController {
 		return stdRepo.findAll().toString();
 	}*/
 	
-	@RequestMapping("/allStudent")
+	@RequestMapping(path="/allStudent",produces = {"application/xml"}) // It should produces only XMl response 
+	//@RequestMapping("/allStudent")
 	@ResponseBody
 	public List<Student> allStudent() {
 		return stdDao.findAll();
