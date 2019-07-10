@@ -122,7 +122,7 @@ public class StudentController {
 	
 	
 	//********** POST *************
-	@PostMapping("/add")
+	@PostMapping(path="/add",consumes = {"application/json"})
 	public Student add(@RequestBody Student student) {
 		stdRepo.save(student);
 		return student;
