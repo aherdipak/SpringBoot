@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dac.starter.dao.StudentDao;
 import com.dac.starter.dao.StudentRepo;
 import com.dac.starter.model.Student;
 
-@Controller
+@RestController
 public class StudentController {
 
 	@Autowired
@@ -95,7 +95,7 @@ public class StudentController {
 	
 	@RequestMapping(path="/allStudent",produces = {"application/xml"}) // It should produces only XMl response 
 	//@RequestMapping("/allStudent")
-	@ResponseBody
+	//@ResponseBody
 	public List<Student> allStudent() {
 		return stdDao.findAll();
 	}
@@ -113,8 +113,11 @@ public class StudentController {
 	}
 	*/
 	@RequestMapping("/student/{stdId}")
-	@ResponseBody
+	//@ResponseBody
 	public Optional<Student> getStudent(@PathVariable("stdId")int stdId) {
 		return stdDao.findById(stdId);
 	}
+	
+	
+	
 }
