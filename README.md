@@ -2,8 +2,6 @@
 
 ###  Overview
 
-Topic's
-
 - Basic Application
 - Basic REST Services
 
