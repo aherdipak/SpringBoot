@@ -127,7 +127,7 @@ Update `pom.xml` with below data.
 		</plugins>
 	</build>
 ```
-####/pom.xml
+#### /pom.xml
 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0"
