@@ -101,4 +101,13 @@ Step 6. Run `HelloSpringBootApp` class as java application, go to browser and ty
 ![Screenshot 2019-07-15 at 11 50 33 PM](https://user-images.githubusercontent.com/35020560/61240485-f32ba900-a75e-11e9-9c97-aab166658d41.png)
 
 
+#### How to change default port of tomcat?
+
+src/main/resource --> create file `application.properties`
+
+```
+server.port = 9090
+
+```
+
 #### Example : `HelloWorldSpringBoot` project directory
