@@ -171,4 +171,18 @@ Update `pom.xml` with below data.
 </project>
 ```
 
+![Screenshot 2019-07-20 at 1 08 26 PM](https://user-images.githubusercontent.com/35020560/61575920-57989080-aaf0-11e9-9023-94309085572d.png)
+
+![Screenshot 2019-07-20 at 1 09 19 PM](https://user-images.githubusercontent.com/35020560/61575924-75fe8c00-aaf0-11e9-94f0-b31b2228dcf1.png)
+
+![Screenshot 2019-07-20 at 1 10 54 PM](https://user-images.githubusercontent.com/35020560/61575936-8c0c4c80-aaf0-11e9-939d-567d722df604.png)
+
+Now to to the project location and run generated jar file try to fetch this `http://localhost:9090/` url in browser.
+
+![Screenshot 2019-07-20 at 12 57 47 PM](https://user-images.githubusercontent.com/35020560/61575962-db527d00-aaf0-11e9-85e3-0cf5469d7a11.png)
+
+![Screenshot 2019-07-20 at 1 19 11 PM](https://user-images.githubusercontent.com/35020560/61575971-076dfe00-aaf1-11e9-84d7-25dafbbe9a0b.png)
+
+
+
 #### Example : `HelloWorldSpringBoot` project directory
