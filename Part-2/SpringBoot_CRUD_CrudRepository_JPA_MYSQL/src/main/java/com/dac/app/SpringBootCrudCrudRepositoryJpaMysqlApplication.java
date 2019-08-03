@@ -1,5 +1,6 @@
 package com.dac.app;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,33 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 	@Override
 	public void run(String... args) throws Exception {
 		//addPerson();
-		addPeople();
+		//addPeople();
+		//getPeopleByIds();
+		//deletePeopleByIds();
+		updatePeopleEmailById();
+	}
+
+	private void updatePeopleEmailById() {
+		 peopleService.updatePeopleEmailById(1,"newEmail@gmail.com");
+		
+	}
+
+	private void deletePeopleByIds() {
+		List<Integer> ids= new ArrayList<>();
+		ids.add(2);
+		
+		peopleService.deletePeopleByIds(ids);
+	}
+
+	private void getPeopleByIds() {
+		List<Integer> ids= new ArrayList<>();
+		ids.add(2);
+		ids.add(3);
+		ids.add(4);
+		ids.add(201);
+		
+		Iterable<People> peopleList = peopleService.getPeopleByIds(ids);
+		peopleList.forEach(System.out::println);
 	}
 
 	private void addPeople() {

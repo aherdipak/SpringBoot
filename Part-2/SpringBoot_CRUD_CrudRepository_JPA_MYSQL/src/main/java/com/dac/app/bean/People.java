@@ -78,6 +78,9 @@ public class People {
 		this.addedDate = addedDate;
 	}
 
+	public People() {
+		
+	}
 	@Override
 	public String toString() {
 		return "People [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
