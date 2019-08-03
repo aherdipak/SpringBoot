@@ -35,13 +35,13 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 	}
 
 	private void updatePeopleEmailById() {
-		 peopleService.updatePeopleEmailById(1,"newEmail@gmail.com");
+		 peopleService.updatePeopleEmailById(4,"newEmail123@gmail.com");
 		
 	}
 
 	private void deletePeopleByIds() {
 		List<Integer> ids= new ArrayList<>();
-		ids.add(2);
+		ids.add(3);
 		
 		peopleService.deletePeopleByIds(ids);
 	}

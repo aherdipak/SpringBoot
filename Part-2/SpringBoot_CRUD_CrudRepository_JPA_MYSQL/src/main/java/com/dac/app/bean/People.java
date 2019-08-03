@@ -9,8 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name="people_master")
+
+//Normally when we update record application is fire bellow query 
+// "update people_master set added_date=?, email=?, first_name=?, last_name=? where id=?"
+// which may degreed the performance of application
+// whatever field we are updating those filed should be updated.
+// to avoid this we have to use bellow annotation which will fire bellow query on DB
+// "update people_master set email=? where id=?"
+@DynamicUpdate
 public class People {
 	
 	@Id
