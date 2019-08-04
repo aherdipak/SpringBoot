@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -21,6 +25,18 @@ import org.hibernate.annotations.DynamicUpdate;
 // to avoid this we have to use bellow annotation which will fire bellow query on DB
 // "update people_master set email=? where id=?"
 @DynamicUpdate
+
+//Using JPA NamedQueries
+/*@NamedQueries(value = {
+		@NamedQuery(name = "People.findByFirstName",query = "SELECT p FROM People p WHERE p.firstName = ?1"),
+		@NamedQuery(name = "People.getPeopleInfoByFirstNameAndLastName",query = "SELECT p FROM People p WHERE p.firstName = ?1 AND p.lastName = ?2")
+})*/
+
+@NamedNativeQueries(value = { 
+		@NamedNativeQuery(name = "People.findByFirstName", query = "SELECT * FROM people_master WHERE FIRST_NAME = ?1", resultClass =People.class ),
+		@NamedNativeQuery(name = "People.getPeopleInfoByFirstNameAndLastName", query = "SELECT * FROM people_master WHERE FIRST_NAME = ?1 AND LAST_NAME = ?2", resultClass =People.class) 
+	
+})
 public class People {
 	
 	@Id

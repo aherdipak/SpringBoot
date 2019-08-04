@@ -5,12 +5,15 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.NamedQueries;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.dac.app.bean.People;
+import com.dac.app.service.JpaQueryConceptService;
 import com.dac.app.service.PeopleService;
 
 @SpringBootApplication
@@ -18,6 +21,9 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 
 	@Autowired
 	private PeopleService peopleService;
+	
+	@Autowired
+	private JpaQueryConceptService jpaQueryConceptService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootCrudCrudRepositoryJpaMysqlApplication.class, args);
@@ -31,9 +37,51 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 		//addPeople();
 		//getPeopleByIds();
 		//deletePeopleByIds();
-		updatePeopleEmailById();
+		//updatePeopleEmailById();
+		
+		
+		// Spring Boot Data JPA Query method concept
+		//getPeopleByLastName();
+		//getPeopleInfoByFistNameAndEmail();
+		
+		//Using JPA NamedQueries - @NamedQueries 
+		//getPeopleInfoByFirstName();
+		//getPeopleInfoByFirstNameAndLastName();
+		
+		
+		// @NamedNativeQueries
+		
+		//getPeopleInfoByFirstName();
+		getPeopleInfoByFirstNameAndLastName();
 	}
 
+	
+	private void getPeopleInfoByFirstNameAndLastName() {
+		List<People>personList = jpaQueryConceptService.getPeopleInfoByFirstNameAndLastName("Deepak","Aher");
+		personList.forEach(System.out::println);
+		
+	}
+
+	private void getPeopleInfoByFirstName() {
+		List<People>personList = jpaQueryConceptService.getPeopleInfoByFirstName("Deepak");
+		personList.forEach(System.out::println);
+		
+	}
+
+	//-------------------------------------------
+	private void getPeopleInfoByFistNameAndEmail() {
+		List<People>personList = jpaQueryConceptService.getPeopleInfoByFistNameAndEmail("Deepak","newEmail@gmail.com");
+		personList.forEach(System.out::println);
+		
+	}
+
+	private void getPeopleByLastName() {
+		List<People>personList = jpaQueryConceptService.getPeopleByLastName("Aher");
+		personList.forEach(System.out::println);
+		
+	}
+
+	//---------------------------------------
 	private void updatePeopleEmailById() {
 		 peopleService.updatePeopleEmailById(4,"newEmail123@gmail.com");
 		
