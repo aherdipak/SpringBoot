@@ -1,4 +1,13 @@
 ## Spring Boot REST data (CRUD Operation | JPA | MYSQL)
 
+###  Overview
+
+- Spring Boot Data JPA Repositories
+- Spring Boot Data JPA Query methods concept
+- @NamedQueries in Spring Data JPA
+- @NamedNativeQueries in Spring Data JPA
+- @Query annotation in Spring data JPA with JPQL
+- @Query annoatation in Spring data JPA with Native Query(SQL query)
+
 
 #### Example : `SpringBoot_CRUD_CrudRepository_JPA_MYSQL` project directory
