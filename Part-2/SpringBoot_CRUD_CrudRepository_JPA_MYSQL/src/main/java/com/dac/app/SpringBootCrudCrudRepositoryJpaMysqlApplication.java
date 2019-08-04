@@ -13,8 +13,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.dac.app.bean.People;
+import com.dac.app.bean.Student;
 import com.dac.app.service.JpaQueryConceptService;
 import com.dac.app.service.PeopleService;
+import com.dac.app.service.QueryAnnotationService;
 
 @SpringBootApplication
 public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandLineRunner {
@@ -24,6 +26,9 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 	
 	@Autowired
 	private JpaQueryConceptService jpaQueryConceptService;
+	
+	@Autowired
+	private QueryAnnotationService queryAnnotationService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootCrudCrudRepositoryJpaMysqlApplication.class, args);
@@ -52,10 +57,41 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 		// @NamedNativeQueries
 		
 		//getPeopleInfoByFirstName();
-		getPeopleInfoByFirstNameAndLastName();
+		//getPeopleInfoByFirstNameAndLastName();
+		
+		//@Query annotation
+		//addStudent();
+		//getStudentInfoByName();
+		getStudentInfoByIdAndFirstName();
+		
 	}
 
 	
+	private void getStudentInfoByIdAndFirstName() {
+		Student bean = queryAnnotationService.getStudentInfoByIdAndFirstName(5,"vishal");
+		System.out.println(bean);
+	}
+
+	private void getStudentInfoByName() {
+		List<Student> list = queryAnnotationService.getStudentInfoByName("vishal");
+		list.forEach(System.out::println);
+	}
+
+	private void addStudent() {
+		List<Student> studentList = Arrays.asList(
+				new Student("vishal", "sali", "v@gmail.com", new Date()),
+				new Student("chetan", "bhangale", "c@gmail.com",  new Date()),
+				new Student("anubhav", "khobragade", "a@gmail.com",  new Date()));
+		
+		List<Student> list = queryAnnotationService.addStudent(studentList);
+		
+		for (Student std : list) {
+			System.out.println(std);
+		}
+		
+	}
+
+	//------------------------
 	private void getPeopleInfoByFirstNameAndLastName() {
 		List<People>personList = jpaQueryConceptService.getPeopleInfoByFirstNameAndLastName("Deepak","Aher");
 		personList.forEach(System.out::println);
