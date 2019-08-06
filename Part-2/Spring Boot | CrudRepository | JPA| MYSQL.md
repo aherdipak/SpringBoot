@@ -15,6 +15,7 @@
 - @Query annoatation in Spring data JPA with Native Query(SQL query)
 - Pagination and sorting in Spring data JPA
 - Async query result in Spring data JPA
+- @Query (Spring data) with Named Parameters JPQL
 
 
 #### Example : `SpringBoot_CRUD_CrudRepository_JPA_MYSQL` project directory
