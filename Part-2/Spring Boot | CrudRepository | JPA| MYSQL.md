@@ -8,6 +8,7 @@
 - @NamedNativeQueries in Spring Data JPA
 - @Query annotation in Spring data JPA with JPQL
 - @Query annoatation in Spring data JPA with Native Query(SQL query)
+- Pagination and sorting in Spring data JPA
 
 
 #### Example : `SpringBoot_CRUD_CrudRepository_JPA_MYSQL` project directory
