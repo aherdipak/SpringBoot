@@ -26,7 +26,7 @@ import com.dac.app.service.PeopleService;
 import com.dac.app.service.QueryAnnotationService;
 
 @SpringBootApplication
-@EnableAsync
+//@EnableAsync
 public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandLineRunner {
 
 	@Autowired
@@ -79,10 +79,14 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 		//addEmployee();
 		//getPaginationDataByLastName();
 		
-		// Async query results
-		CompletableFuture<Employee> completableFuture = paginationService.findByEmail("a@gmail.com");
+		// Async query results -- @EnableAsync must required
+		/*CompletableFuture<Employee> completableFuture = paginationService.findByEmail("a@gmail.com");
 		Employee emp =completableFuture.get(20, TimeUnit.SECONDS);
-		System.out.println(emp);
+		System.out.println(emp);*/
+		
+		// @Query with Named Parameters JPQL
+		List<Employee> employeeList = paginationService.findByLastNameOrFirstName("Aher","Deepak");
+		employeeList.forEach(System.out::println);
 	}
 
 	

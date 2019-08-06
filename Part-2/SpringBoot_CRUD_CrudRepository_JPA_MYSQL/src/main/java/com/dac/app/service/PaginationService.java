@@ -28,6 +28,10 @@ public class PaginationService {
 		return paginationDao.findByEmail(string);
 	}
 
+	public List<Employee> findByLastNameOrFirstName(String lastName, String firstName) {
+		return paginationDao.findByLastNameOrFirstName(lastName,firstName);
+	}
+
 	
 	
 }
