@@ -11,10 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 
+import com.dac.app.bean.Employee;
 import com.dac.app.bean.People;
 import com.dac.app.bean.Student;
 import com.dac.app.service.JpaQueryConceptService;
+import com.dac.app.service.PaginationService;
 import com.dac.app.service.PeopleService;
 import com.dac.app.service.QueryAnnotationService;
 
@@ -29,6 +33,9 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 	
 	@Autowired
 	private QueryAnnotationService queryAnnotationService;
+	
+	@Autowired
+	private PaginationService paginationService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootCrudCrudRepositoryJpaMysqlApplication.class, args);
@@ -62,10 +69,39 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 		//@Query annotation
 		//addStudent();
 		//getStudentInfoByName();
-		getStudentInfoByIdAndFirstName();
+		//getStudentInfoByIdAndFirstName();
+		
+		// PAGINATION
+		
+		//addEmployee();
+		getPaginationDataByLastName();
 		
 	}
 
+	
+	@SuppressWarnings("deprecation")
+	private void getPaginationDataByLastName() {
+		
+		List<Employee> employeeList = paginationService.getPaginationDataByLastName("Aher",new PageRequest(0, 4, Direction.ASC, "firstName"));
+		employeeList.forEach(System.out::println);
+	}
+
+	private void addEmployee() {
+			List<Employee> employeeList = Arrays.asList(
+					new Employee("vishal", "sali", "v@gmail.com", new Date()),
+					new Employee("chetan", "bhangale", "c@gmail.com",  new Date()),
+					new Employee("Deepak", "Aher", "c@gmail.com",  new Date()),
+					new Employee("AAA", "Aher", "c@gmail.com",  new Date()),
+					new Employee("BBB", "Aher", "c@gmail.com",  new Date()),
+					new Employee("CCC", "Aher", "c@gmail.com",  new Date()),
+					new Employee("anubhav", "khobragade", "a@gmail.com",  new Date()));
+			
+			List<Employee> list = paginationService.addEmployee(employeeList);
+			
+			list.forEach(System.out::println);
+	}
+
+	//---------------------------
 	
 	private void getStudentInfoByIdAndFirstName() {
 		Student bean = queryAnnotationService.getStudentInfoByIdAndFirstName(5,"vishal");
