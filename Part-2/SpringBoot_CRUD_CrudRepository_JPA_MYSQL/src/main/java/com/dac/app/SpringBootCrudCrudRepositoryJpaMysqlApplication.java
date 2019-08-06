@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 import javax.persistence.NamedQueries;
 
@@ -13,6 +15,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import com.dac.app.bean.Employee;
 import com.dac.app.bean.People;
@@ -23,6 +26,7 @@ import com.dac.app.service.PeopleService;
 import com.dac.app.service.QueryAnnotationService;
 
 @SpringBootApplication
+@EnableAsync
 public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandLineRunner {
 
 	@Autowired
@@ -72,10 +76,13 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 		//getStudentInfoByIdAndFirstName();
 		
 		// PAGINATION
-		
 		//addEmployee();
-		getPaginationDataByLastName();
+		//getPaginationDataByLastName();
 		
+		// Async query results
+		CompletableFuture<Employee> completableFuture = paginationService.findByEmail("a@gmail.com");
+		Employee emp =completableFuture.get(20, TimeUnit.SECONDS);
+		System.out.println(emp);
 	}
 
 	

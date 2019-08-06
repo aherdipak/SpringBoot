@@ -1,6 +1,7 @@
 package com.dac.app.service;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +22,10 @@ public class PaginationService {
 
 	public List<Employee> getPaginationDataByLastName(String lastName, PageRequest pageRequest) {
 		return paginationDao.getPaginationDataByLastName(lastName, pageRequest);
+	}
+
+	public CompletableFuture<Employee> findByEmail(String string) {
+		return paginationDao.findByEmail(string);
 	}
 
 	
