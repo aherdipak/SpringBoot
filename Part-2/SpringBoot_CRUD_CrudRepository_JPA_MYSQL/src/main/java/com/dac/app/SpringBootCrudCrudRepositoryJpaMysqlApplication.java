@@ -85,8 +85,13 @@ public class SpringBootCrudCrudRepositoryJpaMysqlApplication implements CommandL
 		System.out.println(emp);*/
 		
 		// @Query with Named Parameters JPQL
-		List<Employee> employeeList = paginationService.findByLastNameOrFirstName("Aher","Deepak");
-		employeeList.forEach(System.out::println);
+		//List<Employee> employeeList = paginationService.findByLastNameOrFirstName("Aher","Deepak");
+		//employeeList.forEach(System.out::println);
+		
+		// @Query with Declaring manipulating queries
+		int id = 10;
+		String newEmail = "Deepak@gmail.com";
+		paginationService.updateEmailById(id,newEmail);
 	}
 
 	

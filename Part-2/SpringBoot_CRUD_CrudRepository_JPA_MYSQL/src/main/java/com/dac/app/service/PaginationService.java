@@ -32,6 +32,10 @@ public class PaginationService {
 		return paginationDao.findByLastNameOrFirstName(lastName,firstName);
 	}
 
+	public void updateEmailById(int id, String newEmail) {
+		paginationDao.updateEmailById(id,newEmail);
+	}
+
 	
 	
 }
