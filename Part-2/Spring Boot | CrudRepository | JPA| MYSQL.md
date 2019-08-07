@@ -16,6 +16,7 @@
 - Pagination and sorting in Spring data JPA
 - Async query result in Spring data JPA
 - @Query (Spring data) with Named Parameters JPQL
+- @Query with Declaring manipulating queries | @Transactional | @Modifying
 
 
 #### Example : `SpringBoot_CRUD_CrudRepository_JPA_MYSQL` project directory
