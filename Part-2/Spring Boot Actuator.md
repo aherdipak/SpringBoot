@@ -3,6 +3,7 @@
 
 * Spring Boot Actuator Documentation 
   - https://docs.spring.io/spring-boot/docs/current/actuator-api/html/
+  - https://www.callicoder.com/spring-boot-actuator/
   
 * Spring Boot Actuator Endpoints 
   - https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
