@@ -26,6 +26,7 @@
 management.server.port=9999 
 
 ```
+![image](https://user-images.githubusercontent.com/35020560/63648075-ff385c80-c747-11e9-813b-e158644ec174.png)
 
 
 #### Example : `SpringBoot_Actuator` project directory
