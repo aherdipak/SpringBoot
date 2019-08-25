@@ -1,8 +1,11 @@
 ## Spring Boot Actuator basics | Production Monitoring and Management
 
 
-* Spring JPA Documentation 
-  - https://
+* Spring Boot Actuator Documentation 
+  - https://docs.spring.io/spring-boot/docs/current/actuator-api/html/
+  
+* Spring Boot Actuator Endpoints 
+  - https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 
 
 ###  Overview
