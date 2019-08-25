@@ -17,5 +17,15 @@
 ![image](https://user-images.githubusercontent.com/35020560/63647969-43c2f880-c746-11e9-8e54-1dbb379de47c.png)
 
 
+### Requirement
+
+1) Actuator run on some other port
+
+#### / application.properties
+```
+management.server.port=9999 
+
+```
+
 
 #### Example : `SpringBoot_Actuator` project directory
