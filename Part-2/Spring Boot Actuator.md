@@ -65,6 +65,36 @@ management.endpoint.health.show-details=always
 ```
 ![image](https://user-images.githubusercontent.com/35020560/64125372-56cd6c80-cdc7-11e9-9f7a-26b66e235536.png)
 
+5) Creating a Custom Health Indicator
 
+```
+
+@Component
+public class CustomHealthIndicator extends AbstractHealthIndicator{
+
+	  private final String message_key = "Custom Service";
+
+	@Override
+	protected void doHealthCheck(Builder builder) throws Exception {
+        
+        if (isRunningService()) {
+             builder.up().withDetail(message_key, "Available")
+             			 .withDetail("message", "I am from custom actuator");
+        }else {
+        	 builder.down().withDetail(message_key, "Not Available")
+        	 			   .withDetail("message", "I am from custom actuator");
+        }
+		
+	}
+	
+	
+    private Boolean isRunningService() {
+        Boolean isRunning = true;
+        // Logic 
+        return isRunning;
+    }
+
+}
+```
 
 #### Example : `SpringBoot_Actuator` project directory
