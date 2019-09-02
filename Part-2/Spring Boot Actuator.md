@@ -39,6 +39,7 @@ management.server.port=9999
 management.endpoints.web.base-path=/manage
 
 ```
+![image](https://user-images.githubusercontent.com/35020560/64125090-71531600-cdc6-11e9-8ca9-20bbfd454592.png)
 
 
 
