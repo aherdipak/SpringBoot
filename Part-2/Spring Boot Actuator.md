@@ -41,6 +41,20 @@ management.endpoints.web.base-path=/manage
 ```
 ![image](https://user-images.githubusercontent.com/35020560/64125090-71531600-cdc6-11e9-8ca9-20bbfd454592.png)
 
+3) To enabled endpoint
+
+#### / application.properties
+```
+
+# To enabled endpoint
+management.endpoint.shutdown.enabled=true
+management.endpoint.env.enabled=true
+
+# Use "*" to expose all endpoints, or a comma-separated list to expose selected ones
+#management.endpoints.web.exposure.include=health,info,env
+management.endpoints.web.exposure.include=*
+
+```
 
 
 #### Example : `SpringBoot_Actuator` project directory
