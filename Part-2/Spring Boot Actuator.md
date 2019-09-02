@@ -56,5 +56,13 @@ management.endpoints.web.exposure.include=*
 
 ```
 
+4) Displaying detailed health information
+
+#### / application.properties
+```
+# HEALTH ENDPOINT
+management.endpoint.health.show-details=always
+```
+
 
 #### Example : `SpringBoot_Actuator` project directory
