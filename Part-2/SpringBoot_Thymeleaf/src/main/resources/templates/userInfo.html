@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+
+<div class="container">
+  <h2>User Information</h2>
+  <div th:if="${msg}" th:text="${msg}" th:class="'alert alert-success'"/>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+         <th>userId</th>
+         <th>userName</th>
+         <th>gender</th>
+         <th>married</th>
+         <th>profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${allUsers}">
+        <td th:text="${user.userId}"/>
+        <td th:text="${user.userName}"/>
+        <td th:text="${user.gender}"/>
+        <td th:text="${user.married}"/>
+        <td th:text="${user.profile}"/>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<a href="#" th:href="@{/getUserPage}"> Add User</a>
+</body>
+</html>

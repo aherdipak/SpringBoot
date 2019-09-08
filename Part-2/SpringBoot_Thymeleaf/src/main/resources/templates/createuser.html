@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+
+<div class="container">
+  <h2>Spring Boot Thymeleaf</h2>
+  
+  
+  <form action="#" th:action="@{/addUser}" th:object="${user}" method="POST">
+    <div class="form-group">
+      <label>User ID:</label>
+      <input type="text" class="form-control" placeholder="Enter email" th:field="*{userId}">
+      <label th:if="${#fields.hasErrors('userId')}" th:class="'error'">Enter User ID</label>
+    </div>
+    
+    <div class="form-group">
+      <label>User Name:</label>
+      <input type="text" class="form-control" placeholder="Enter email" th:field="*{userName}">
+      <label th:if="${#fields.hasErrors('userName')}" th:class="'error'">Enter User Name</label>
+    </div>
+    
+    <div class="form-group">
+      <label>Gender:</label>
+      <label class="radio-inline"><input type="radio" th:field="*{gender}" value="Male">Male</label>
+	  <label class="radio-inline"><input type="radio" th:field="*{gender}" value="Female">Female</label>
+      <label th:if="${#fields.hasErrors('gender')}" th:class="'error'">Select Gender</label>
+    </div>
+    
+     <div class="form-group">
+      <label class="checkbox-inline"><input type="checkbox" th:field="*{married}">Married</label>
+      <label th:if="${#fields.hasErrors('married')}" th:class="'error'">Select married</label>
+    </div>
+
+	<div class="form-group">
+		<label>Profile:</label> 
+		<select class="form-control" th:field="*{profile}">
+			<option th:each="profile: ${allProfile}" th:value="${profile}" th:text="${profile}">Profile</option>
+		</select>
+	</div>
+
+    <input type="submit" class="btn btn-default" th:value="Submit"/>
+  </form>
+</div>
+
+</body>
+</html>
