@@ -4,6 +4,7 @@
 
 - Basic Application
 - Basic REST Services
+- MicroServices
 
 
 ## Download Spring Tools 
